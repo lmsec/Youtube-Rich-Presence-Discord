@@ -1,7 +1,7 @@
 title_filter = [
     "(",
     ")",
-    "YouTube",
+    "YouTube Music",
     "Waterfox",
     "Audio",
     "Official Music Video",
@@ -19,5 +19,6 @@ title_filter = [
     "Music Video",
     "Official Lyric Video",
     "Chromium",
+    "Reupload"
 ]
 
