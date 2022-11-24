@@ -8,11 +8,10 @@ from textfilters import useless_words
 load_dotenv()
 client_id = os.getenv('DISCORD_YT_APP_TOKEN')
 
+window_titles = []
+
 RPC = Presence(client_id)  # Initialize the client class
 RPC.connect()  # Start the handshake loop
-
-
-window_titles = []
 
 
 def full():
@@ -51,12 +50,8 @@ def full():
         print(RPC.update(state=song_name, details="Listening to",
               large_image="none", large_text="none",
               small_image="none", small_text="none"))
-        # Set the presence
-        # print(f'RPC.update(state={song_name} + " on Youtube Music", details="Listening to: ")')
-    time.sleep(5)  # Can only update rich presence every 15 seconds
-    print("ending, let's do it again")
+    time.sleep(15)
     full()
-    print("this should not happen")
 
 
 try:
@@ -68,4 +63,4 @@ except UnboundLocalError:
     print('Please bring tab to foreground or keep it open in a separate browser!')
 finally:
     RPC.close()
-    print("the end bruv")
+    print("The end")
