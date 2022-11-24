@@ -1,9 +1,13 @@
+import os
+import time
 import ctypes
+from dotenv import load_dotenv
 from pypresence import Presence
-import time, os, sys
 from textfilters import useless_words
 
-client_id = ''  # Fake ID, put your real one here
+load_dotenv()
+client_id = os.getenv('DISCORD_YT_APP_TOKEN')
+
 RPC = Presence(client_id)  # Initialize the client class
 RPC.connect()  # Start the handshake loop
 
@@ -14,21 +18,21 @@ window_titles = []
 def full():
     print("beginning")
     song_name = None
-    EnumWindows = ctypes.windll.user32.EnumWindows
-    EnumWindowsProc = ctypes.WINFUNCTYPE(ctypes.c_bool, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int))
-    GetWindowText = ctypes.windll.user32.GetWindowTextW
-    GetWindowTextLength = ctypes.windll.user32.GetWindowTextLengthW
-    IsWindowVisible = ctypes.windll.user32.IsWindowVisible
+    enum_windows = ctypes.windll.user32.EnumWindows
+    enum_windows_proc = ctypes.WINFUNCTYPE(ctypes.c_bool, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int))
+    get_window_text = ctypes.windll.user32.GetWindowTextW
+    get_window_text_length = ctypes.windll.user32.GetWindowTextLengthW
+    is_window_visible = ctypes.windll.user32.IsWindowVisible
 
     def foreach_window(hwnd, lParams):
-        if IsWindowVisible(hwnd):
-            length = GetWindowTextLength(hwnd)
+        if is_window_visible(hwnd):
+            length = get_window_text_length(hwnd)
             buff = ctypes.create_unicode_buffer(length + 1)
-            GetWindowText(hwnd, buff, length + 1)
+            get_window_text(hwnd, buff, length + 1)
             window_titles.append(buff.value)
         return True
 
-    EnumWindows(EnumWindowsProc(foreach_window), 0)
+    enum_windows(enum_windows_proc(foreach_window), 0)
     title_filter = 'YouTube Music'
     for window_title in window_titles:
         if title_filter in window_title:
