@@ -1,4 +1,4 @@
-# Youtube Rich Presence for Discord
+# Youtube Music Rich Presence for Discord
 Description: Grab Title Of Youtube Video on Windows to Display On Discord as Rich Presence.
 
 Author: @M4cs
