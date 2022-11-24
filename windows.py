@@ -15,7 +15,6 @@ RPC.connect()  # Start the handshake loop
 
 
 def full():
-    print("beginning")
     song_name = None
     enum_windows = ctypes.windll.user32.EnumWindows
     enum_windows_proc = ctypes.WINFUNCTYPE(ctypes.c_bool, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int))
