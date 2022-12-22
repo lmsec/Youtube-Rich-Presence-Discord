@@ -64,6 +64,6 @@ and then you can close the command prompt and it will run in the background!
 If you use Python 3.7+ you'll get an error about PyPresence.
 1. Note the path of your PyPresence sources, e.g. `venv/Lib/site-packages/pypresence` (it's in the error).
 2. Replace these, in that order (use your IDE / sed / powerhell / ...)
-   a. "async" (whole word) => "async_req". E.g. `find ./venv/Lib/site-packages/pypresence -type f -print0 | xargs -0 sed -i "s/\basync\b/async def/g"`
+   a. "async" (whole word) => "async_req". E.g. `find ./venv/Lib/site-packages/pypresence -type f -print0 | xargs -0 sed -i "s/\basync\b/async_req/g"`
    b. "async_req def" => "async def". E.g. `find ./venv/Lib/site-packages/pypresence -type f -print0 | xargs -0 sed -i "s/\basync_req def\b/async def/g"`
     
