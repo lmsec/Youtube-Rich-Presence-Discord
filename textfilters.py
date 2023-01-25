@@ -18,6 +18,6 @@ title_filter = [
     "Internet Explorer"
     "Music Video",
     "Official Lyric Video",
-    "Chromium",
+    "Chromium"
 ]
 
