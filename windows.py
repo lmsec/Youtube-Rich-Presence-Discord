@@ -15,7 +15,6 @@ RPC.connect()  # Start the handshake loop
 
 
 def full():
-    print("beginning")
     song_name = None
     enum_windows = ctypes.windll.user32.EnumWindows
     enum_windows_proc = ctypes.WINFUNCTYPE(ctypes.c_bool, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int))
@@ -48,8 +47,8 @@ def full():
     if song_name is not None and song_name != '':
         song_name = (song_name[:120] + '..') if len(song_name) > 120 else song_name
         print(RPC.update(state=song_name, details="Listening to",
-              large_image="none", large_text="none",
-              small_image="none", small_text="none"))
+                         large_image="none", large_text="none",
+                         small_image="none", small_text="none"))
     time.sleep(15)
     full()
 

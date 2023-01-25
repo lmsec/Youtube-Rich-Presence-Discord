@@ -15,6 +15,8 @@ useless_words = [
     "MusicVideo",
     "Official Lyric Video",
     "Chromium",
+    "4k",
+    "4K",
     "Reupload"
 ]
 

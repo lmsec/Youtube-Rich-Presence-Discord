@@ -1,4 +1,4 @@
-# Youtube Rich Presence for Discord
+# Youtube Music Rich Presence for Discord
 Description: Grab Title Of Youtube Video on Windows to Display On Discord as Rich Presence.
 
 Author: @M4cs
@@ -10,9 +10,9 @@ Version: 2.0-rc
 Changelog:
 V2.0-rc: (Breaking) Youtube Music support only - Python 3.10 compatibility (see "Patch PyPresence" section) - Appearance fixes
 
-V1.1: Fixed Buggies and added cleaner code from Neko and Splendid  
+V1.1: Fixed Buggies and added cleaner code from Neko and Splendid
 
-![alt text](https://image.prntscr.com/image/pG214_S_R_iYfSjunn5YTg.png)  										
+![alt text](https://image.prntscr.com/image/pG214_S_R_iYfSjunn5YTg.png)
 
 ![alt text](https://image.prntscr.com/image/kkmfZPEASiSJXA-ypF7EyQ.png)
 
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 In `.env` file you must set your Client ID. You can refer to the link above in Pre-Reqs to see where to find your Client ID. You need to add an application and then pull the Client ID.
 
-I recommend using pythonw for this so you can run it in the background and not worry about a command prompt staying open. 
+I recommend using pythonw for this so you can run it in the background and not worry about a command prompt staying open.
 
 **You have to keep a single tab open on a browser for YouTube when listening to music or be tabbed into your Youtube Video for it to register!**
 
@@ -64,6 +64,6 @@ and then you can close the command prompt and it will run in the background!
 If you use Python 3.7+ you'll get an error about PyPresence.
 1. Note the path of your PyPresence sources, e.g. `venv/Lib/site-packages/pypresence` (it's in the error).
 2. Replace these, in that order (use your IDE / sed / powerhell / ...)
-    a. "async" (whole word) => "async_req". E.g. `find ./venv/Lib/site-packages/pypresence -type f -print0 | xargs -0 sed -i "s/\basync\b/async def/g"`
-    b. "async_req def" => "async def". E.g. `find ./venv/Lib/site-packages/pypresence -type f -print0 | xargs -0 sed -i "s/\basync_req def\b/async def/g"`
+   a. "async" (whole word) => "async_req". E.g. `find ./venv/Lib/site-packages/pypresence -type f -print0 | xargs -0 sed -i "s/\basync\b/async_req/g"`
+   b. "async_req def" => "async def". E.g. `find ./venv/Lib/site-packages/pypresence -type f -print0 | xargs -0 sed -i "s/\basync_req def\b/async def/g"`
     
